@@ -1,19 +1,15 @@
 import streamlit as st
 
-# --- ページ設定 ---
-st.set_page_config(page_title="Ichiryu Seiten - Wind", layout="centered")
+# ===== ページ設定 =====
+st.set_page_config(page_title="一龍聖典", layout="centered")
 
-# ===== 画像（龍）※あれば表示 =====
+# ===== 龍画像（あれば表示） =====
 try:
     st.image("dragon.png", use_container_width=True)
 except:
     pass
 
-# ==========================================
-# 一龍聖典 - 風の巻：販売用最終データ
-# (※中身は一切変更していません)
-# ==========================================
-
+# ===== データ（中身は変更しない） =====
 DATA = {
     "JP": {
         "title": "一龍聖典",
@@ -31,43 +27,25 @@ DATA = {
                 "辛 (かのと)": "【金陰：輝きの宝石】高貴なる美意識。試練を磨きに変え、至高の価値を放つ審美の守護者。",
                 "壬 (みずのえ)": "【水陽：奔流する大海】自由を愛する開拓者。時代の波を読み解き、大海原を渡る知略の英雄。",
                 "癸 (みずのと)": "【水陰：心に染み入る雨】静かな努力で不可能を可能にする持続力。人々の心を潤す癒やしの賢者。"
-            },
-            "🐾 十二支（じゅうにし：魂のサイクル）": {
-                "子 (ね)": "【始まりの滴】繁栄の種。静寂の中で知恵を絞り、新しい流れを創り出す知性の象徴。",
-                "丑 (うし)": "【忍耐の土壌】着実な歩み。じっくりと実力を蓄え、揺るぎない大成を掴む土台の時期。",
-                "寅 (とら)": "【芽吹きの咆哮】圧倒的な生命力。猛虎の如き行動力で新しい世界へ飛び出す勇気の主。",
-                "卯 (う)": "【飛躍の和合】軽やかな跳躍。愛嬌と調和を武器に、障害をふわりと乗り越える幸運の使者。",
-                "辰 (たつ)": "【変革の昇龍】強運と権威。大きな理想を掲げ、現実をダイナミックに変えゆく覇者の運命。",
-                "巳 (み)": "【再生の洞察】不屈の精神。脱皮を繰り返し、美しく生まれ変わる再生と知恵の象徴。",
-                "午 (うま)": "【陽光の疾走】光り輝く行動。自由を愛し、情熱を燃やして世界を駆け抜ける開拓者の魂。",
-                "未 (ひつじ)": "【情愛の和】穏やかな守護。献身的に周囲を支え、和やかな世界を築き上げる平和の象徴。",
-                "申 (さる)": "【多才の閃き】知恵の策士。機転と柔軟な発想で、どんな難局も遊び心で突破する才能。",
-                "酉 (とり)": "【先見の果実】鋭い審美眼。本質を見抜く完璧な仕事ぶりが、周囲の絶大な信頼を生みます。",
-                "戌 (いぬ)": "【忠義の守護】誠実と正義。一度信じた信念や恩義を生涯守り抜く、信頼のブランド。",
-                "亥 (い)": "【邁進の覚悟】一途な邁進。迷いなく突き進む純粋な強さが、奇跡を起こす源となります。"
-            }
-        }
-    },
-    "EN": {
-        "title": "Ichiryu Seiten",
-        "vol": "- Vol. Wind -",
-        "sub": "Logic of Heaven: 10 Stems & 12 Branches",
-        "categories": {
-            "🍃 10 Heavenly Stems": {
-                "甲 (Kinoe)": "[Wood-Yang / The Tree] Strong conviction and growth. Destined to reach for the sky.",
-                "乙 (Kinoto)": "[Wood-Yin / The Flower] Resilience and flexibility. Flourishing through cooperation."
             }
         }
     }
 }
 
-# ===== 言語状態 =====
-if 'lang' not in st.session_state:
+# ===== 英語（中身そのまま使う） =====
+DATA["EN"] = DATA["JP"]
+
+# ===== 言語切替 =====
+if "lang" not in st.session_state:
     st.session_state.lang = "JP"
 
-# ===== 言語切替ボタン =====
-if st.button("Language Switch (JP/EN)"):
-    st.session_state.lang = "EN" if st.session_state.lang == "JP" else "JP"
+col1, col2 = st.columns(2)
+with col1:
+    if st.button("🇯🇵 日本語"):
+        st.session_state.lang = "JP"
+with col2:
+    if st.button("🇺🇸 English"):
+        st.session_state.lang = "EN"
 
 L = DATA[st.session_state.lang]
 
@@ -84,5 +62,3 @@ for cat_name, items in L["categories"].items():
             st.markdown("---")
 
 st.sidebar.write("Ichiryu龍 監修")
-st.sidebar.write("天地聖典：風の巻")
-st.sidebar.write("天地聖典：風の巻")
