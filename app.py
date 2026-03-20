@@ -49,6 +49,8 @@ with col2:
 
 L = DATA[st.session_state.lang]
 
+st.write(L["categories"].keys()) 
+
 # ===== 表示 =====
 st.title(L["title"])
 st.subheader(L["vol"])
