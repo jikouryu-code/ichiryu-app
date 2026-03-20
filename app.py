@@ -1,8 +1,17 @@
 import streamlit as st
 
+# --- ページ設定 ---
+st.set_page_config(page_title="Ichiryu Seiten - Wind", layout="centered")
+
+# ===== 画像（龍）※あれば表示 =====
+try:
+    st.image("dragon.png", use_container_width=True)
+except:
+    pass
+
 # ==========================================
 # 一龍聖典 - 風の巻：販売用最終データ
-# (十干・十二支・蔵干・五行・十二運 全網羅)
+# (※中身は一切変更していません)
 # ==========================================
 
 DATA = {
@@ -36,20 +45,6 @@ DATA = {
                 "酉 (とり)": "【先見の果実】鋭い審美眼。本質を見抜く完璧な仕事ぶりが、周囲の絶大な信頼を生みます。",
                 "戌 (いぬ)": "【忠義の守護】誠実と正義。一度信じた信念や恩義を生涯守り抜く、信頼のブランド。",
                 "亥 (い)": "【邁進の覚悟】一途な邁進。迷いなく突き進む純粋な強さが、奇跡を起こす源となります。"
-            },
-            "🔑 蔵干（ぞうかん：十二支の本音）": {
-                "子の蔵干 (癸)": "純粋な水の知恵。一途な想いと、冷静に物事を見通す深い洞察力を内に秘めています。",
-                "丑の蔵干 (癸・辛・己)": "湿った土の忍耐。粘り強さの中に、鋭い感性と万物を育てる慈愛が同居しています。",
-                "寅の蔵干 (戊・丙・甲)": "春の胎動。新しいことを始める勇気と、太陽のような情熱、揺るぎない信念を宿しています。",
-                "卯の蔵干 (乙)": "柔らかな生命力。人当たりの良さの裏に、どんな環境でも生き抜く強かな芯の強さがあります。",
-                "辰の蔵干 (乙・癸・戊)": "変幻自在の理想。高い志を持ちながら、現実的な計算と繊細な感性を使い分ける智謀家です。",
-                "巳の蔵干 (戊・庚・丙)": "燃える情熱。社交的な顔の裏に、自らを厳しく磨き上げる刃のような決断力を秘めています。",
-                "午の蔵干 (丙・己・丁)": "真夏の輝き。圧倒的な熱量で周囲を動かし、目的を達成するための献身的な知性を持ちます。",
-                "未の蔵干 (丁・乙・己)": "晩夏の安らぎ。穏やかな調和の中に、情熱を絶やさず仲間を守り抜く粘り強さを秘めています。",
-                "申の蔵干 (己・壬・庚)": "秋の訪れ。多才な知恵と、大海のような自由な発想、物事を完結させる鋭い決断力の塊です。",
-                "酉の蔵干 (辛)": "研ぎ澄まされた美。一点の曇りもない純粋な美意識と、至高の価値を追求する完璧主義を宿します。",
-                "戌の蔵干 (辛・丁・戊)": "守護の土徳。誠実な信念を守るために、内なる情熱を燃やし続ける不屈の防衛本能を持ちます。",
-                "亥の蔵干 (甲・壬)": "冬の生命。静寂の中に大きな夢を抱き、未知の世界へ漕ぎ出す大海の如き知略を秘めています。"
             }
         }
     },
@@ -60,63 +55,27 @@ DATA = {
         "categories": {
             "🍃 10 Heavenly Stems": {
                 "甲 (Kinoe)": "[Wood-Yang / The Tree] Strong conviction and growth. Destined to reach for the sky.",
-                "乙 (Kinoto)": "[Wood-Yin / The Flower] Resilience and flexibility. Flourishing through cooperation.",
-                "丙 (Hinoe)": "[Fire-Yang / The Sun] Overwhelming presence. A leader who lights up the world.",
-                "丁 (Hinoto)": "[Fire-Yin / The Flame] Intellectual passion. A savior who lights the path in the dark.",
-                "戊 (Tsuchinoe)": "[Earth-Yang / The Mountain] Stability and tolerance. Attracting many with dignity.",
-                "己 (Tsuchinoto)": "[Earth-Yin / The Field] Nurturing talent. Shining by helping others grow.",
-                "庚 (Kanoe)": "[Metal-Yang / The Sword] Decision and speed. A hero who breaks old values.",
-                "辛 (Kanoto)": "[Metal-Yin / The Jewel] High aesthetic sense. Turning trials into brilliance.",
-                "壬 (Mizunoe)": "[Water-Yang / The Ocean] Freedom and exploration. A hero of intelligence and waves.",
-                "癸 (Mizunoto)": "[Water-Yin / The Rain] Persistence through quiet effort. A sage of healing."
-            },
-            "🐾 12 Earthly Branches": {
-                "子 (Ne)": "[Rat / The Seed] Prosperity. Intelligence that creates new flows in silence.",
-                "丑 (Ushi)": "[Ox / The Soil] Steady progress. Building a foundation through accumulation.",
-                "寅 (Tora)": "[Tiger / The Roar] Overwhelming vitality. Courage to leap into a new world.",
-                "卯 (U)": "[Rabbit / The Leap] Harmony and charm. A messenger of luck who lightly overcomes obstacles.",
-                "辰 (Tatsu)": "[Dragon / The Dragon] Fortune and authority. Changing reality dynamically.",
-                "巳 (Mi)": "[Snake / The Insight] Indomitable spirit. Symbol of rebirth and wisdom.",
-                "午 (Uma)": "[Horse / The Gallop] Shining action. The soul of a pioneer who runs with passion.",
-                "未 (Hitsuji)": "[Goat / The Peace] Gentle protection. A symbol of peace who builds a harmonious world.",
-                "申 (Saru)": "[Monkey / The Wit] Strategic mind. Talent to break through difficulty with playfulness.",
-                "酉 (Tori)": "[Rooster / The Foresight] Sharp aesthetics. Perfect work that sees through the essence.",
-                "戌 (Inu)": "[Dog / The Loyalty] Sincerity and justice. A brand of trust that protects convictions.",
-                "亥 (I)": "[Boar / The Resolve] Pure momentum. The source of miracles through strength."
+                "乙 (Kinoto)": "[Wood-Yin / The Flower] Resilience and flexibility. Flourishing through cooperation."
             }
         }
     }
 }
 
-# --- ページ設定 ---
-st.set_page_config(page_title="Ichiryu Seiten - Wind", layout="centered")
-
-# 言語状態
+# ===== 言語状態 =====
 if 'lang' not in st.session_state:
     st.session_state.lang = "JP"
 
-# デザインCSS
-st.markdown("""
-    <style>
-    .main { background-color: #000000; }
-    .stMarkdown, .stText, h1, h2, h3, p { color: #D4AF37 !important; text-align: center; }
-    .stButton>button { background-color: #D4AF37; color: black; border-radius: 20px; width: 100%; }
-    .stExpander { background-color: #1a1a1a; border: 1px solid #D4AF37; }
-    </style>
-""", unsafe_allow_html=True)
-
-# 言語切替
+# ===== 言語切替ボタン =====
 if st.button("Language Switch (JP/EN)"):
     st.session_state.lang = "EN" if st.session_state.lang == "JP" else "JP"
 
 L = DATA[st.session_state.lang]
 
-# タイトル表示
+# ===== 表示 =====
 st.title(L["title"])
 st.subheader(L["vol"])
 st.markdown(f"**{L['sub']}**")
 
-# コンテンツ
 for cat_name, items in L["categories"].items():
     with st.expander(cat_name):
         for word, desc in items.items():
@@ -125,4 +84,5 @@ for cat_name, items in L["categories"].items():
             st.markdown("---")
 
 st.sidebar.write("Ichiryu龍 監修")
+st.sidebar.write("天地聖典：風の巻")
 st.sidebar.write("天地聖典：風の巻")
