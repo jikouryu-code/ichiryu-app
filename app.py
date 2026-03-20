@@ -10,6 +10,9 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+st.image("風 (2).png", use_container_width=True)
+
+st.title(L["title"])
 # ==========================================
 # 一龍聖典 - 風の巻：販売用最終データ
 # ==========================================
