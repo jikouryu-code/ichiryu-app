@@ -1,8 +1,12 @@
 import streamlit as st
 st.markdown("""
     <style>
-    * {
-        font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif !important;
+    html, body, .stApp {
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+    }
+
+    h1, h2, h3, p, div, span, label {
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
     }
     </style>
 """, unsafe_allow_html=True)
