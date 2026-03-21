@@ -1,29 +1,7 @@
-import streamlit as st
-import base64
-
-def get_base64(file):
-    with open(file, "rb") as f:
-        return base64.b64encode(f.read()).decode()
-
-img = get_base64("kaze.png")  # ←こっちに変更！
-
 st.markdown(f"""
 <style>
-/* カテゴリ文字の余白と行間 */
-div[role="radiogroup"] label {
-    padding: 14px 12px;   /* ←上下広げる */
-    line-height: 1.8;     /* ←行間ゆったり */
-    font-size: 16px;      /* ←少し大きく */
-}
 
-/* テキスト全体も少しゆるく */
-p, div, span {
-    line-height: 1.7;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
+/* ===== フォント ===== */
 body, .stApp, p, div, span, label, h1, h2, h3 {{
     font-family:
     "Hiragino Mincho ProN",
@@ -39,6 +17,18 @@ input, textarea {{
     "Yu Mincho",
     "MS Mincho",
     serif;
+}}
+
+/* ===== カテゴリ余白 ===== */
+div[role="radiogroup"] label {{
+    padding: 14px 12px;
+    line-height: 1.8;
+    font-size: 16px;
+}}
+
+/* 全体行間 */
+p, div, span {{
+    line-height: 1.7;
 }}
 
 /* ===== 高さ ===== */
