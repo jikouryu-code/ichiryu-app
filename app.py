@@ -30,7 +30,7 @@ input, textarea {{
 div[role="radiogroup"] label {{
     padding: 14px 12px;
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 13px;
 }}
 
 /* 全体行間 */
