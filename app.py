@@ -161,12 +161,12 @@ col1, col2 = st.columns([2, 5])
 
 # ===== 左：カテゴリ =====
 with col1:
-    st.markdown("### 📚 カテゴリ")
-   category = st.radio(
-    "",
-    list(L["categories"].keys()),
-    label_visibility="collapsed"
-)
+    st.markdown("### カテゴリ")
+    category = st.radio(
+        "",
+        list(L["categories"].keys()),
+        label_visibility="collapsed"
+    )
 
 # ===== 右：内容 =====
 with col2:
