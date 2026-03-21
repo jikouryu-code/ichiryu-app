@@ -29,7 +29,7 @@ input, textarea {{
 /* ===== カテゴリ余白 ===== */
 div[role="radiogroup"] label {{
     padding: 14px 12px;
-    line-height: 1.8;
+    line-height: 1.6;
     font-size: 11px;
 }}
 
