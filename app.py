@@ -10,15 +10,22 @@ img = get_base64("kaze.png")  # ←こっちに変更！
 st.markdown(f"""
 <style>
 
+/* 高さ */
+html, body, .stApp {{
+    height: 100%;
+    min-height: 100vh;
+}}
+
 /* 背景 */
 .stApp {{
     background-image: url("data:image/png;base64,{img}");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }}
 
-/* 白オーバーレイ（かなり薄く見せる） */
+/* オーバーレイ */
 .stApp::before {{
     content: "";
     position: fixed;
@@ -26,22 +33,21 @@ st.markdown(f"""
     left: 0;
     right: 0;
     bottom: 0;
-background: rgba(255,255,255,0.6);/* ←ここ調整ポイント */
+    background: rgba(255,255,255,0.75);
     z-index: 0;
 }}
 
-/* 中身を前面に */
+/* 前面 */
 .main > div {{
     position: relative;
     z-index: 1;
 }}
 
-/* 明朝 */
+/* ゴシック（ここ変更） */
 html, body, .stApp {{
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
 }}
 
-/* 文字 */
 h1, h2, h3 {{
     color: #000000;
 }}
