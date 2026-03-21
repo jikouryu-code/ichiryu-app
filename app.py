@@ -61,7 +61,7 @@ html, body, .stApp {{
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.8);
     z-index: 0;
 }}
 
@@ -194,7 +194,7 @@ with col2:
     for word, desc in results.items():
         st.markdown(f"""
         <div style="
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.8);
             padding: 16px;
             border-radius: 12px;
             margin-bottom: 12px;
@@ -219,7 +219,7 @@ for cat_name, items in L["categories"].items():
 for word, desc in results.items():
     st.markdown(f"""
     <div style="
-        background: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.8);
         padding: 16px;
         border-radius: 12px;
         margin-bottom: 12px;
@@ -239,6 +239,6 @@ for word, desc in results.items():
             for word, desc in results.items():
                 st.markdown(f"### {word}")
                 st.write(desc)
-                st.markdown("---")
+               
 
 st.sidebar.write("Ichiryu龍 監修")
