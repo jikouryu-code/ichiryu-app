@@ -156,7 +156,47 @@ L = DATA["JP"]
 
 # ===== 検索 =====
 search = st.text_input("🔍 調べたい言葉を入力（漢字・かなOK）")
+# ===== レイアウト =====
+col1, col2 = st.columns([1, 3])
 
+# ===== 左：カテゴリ =====
+with col1:
+    st.markdown("### 📚 カテゴリ")
+    category = st.radio(
+        "",
+        list(L["categories"].keys())
+    )
+
+# ===== 右：内容 =====
+with col2:
+    st.markdown(f"# {L['title']}")
+    st.markdown(f"## {L['vol']}")
+    st.markdown(f"**{L['sub']}**")
+
+    items = L["categories"][category]
+
+    results = {}
+    for word, desc in items.items():
+        if search == "" or search in word or search in desc:
+            results[word] = desc
+
+    for word, desc in results.items():
+        st.markdown(f"""
+        <div style="
+            background: rgba(255,255,255,0.9);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        ">
+            <div style="font-size:18px; font-weight:bold;">
+                {word}
+            </div>
+            <div style="margin-top:6px; font-size:15px;">
+                {desc}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 # ===== タイトル =====
 st.title(L["title"])
 st.subheader(L["vol"])
