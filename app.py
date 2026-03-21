@@ -13,7 +13,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ===== ページ設定 =====
-st.markdown("<h1 style='text-align:center;'>一龍聖典</h1>", unsafe_allow_html=True)
+st.image("風 (2).png", width=500)
 
 # ===== データ（完全保持）=====
 DATA = {
