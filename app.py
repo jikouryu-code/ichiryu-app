@@ -165,9 +165,23 @@ st.markdown(f"**{L['sub']}**")
 for cat_name, items in L["categories"].items():
     results = {}
 
-    for word, desc in items.items():
-        if search == "" or search in word or search in desc:
-            results[word] = desc
+for word, desc in results.items():
+    st.markdown(f"""
+    <div style="
+        background: rgba(255,255,255,0.9);
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    ">
+        <div style="font-size:18px; font-weight:bold;">
+            {word}
+        </div>
+        <div style="margin-top:6px; font-size:15px;">
+            {desc}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     if results:
         with st.expander(cat_name):
