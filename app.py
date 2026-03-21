@@ -5,14 +5,13 @@ def get_base64(file):
     with open(file, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-img = get_base64("風 (2).png")
+img = get_base64("風 (5).png")  # ←こっちに変更！
 
 st.markdown(f"""
 <style>
 
 /* 背景 */
 .stApp {{
-    background-color: #ffffff;
     background-image: url("data:image/png;base64,{img}");
     background-size: cover;
     background-position: center;
@@ -25,10 +24,16 @@ st.markdown(f"""
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,0.85);  /* ←ここが重要 */
-    z-index: -1;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.92);  /* ←ここ調整ポイント */
+    z-index: 0;
+}}
+
+/* 中身を前面に */
+.main > div {{
+    position: relative;
+    z-index: 1;
 }}
 
 /* 明朝 */
@@ -36,13 +41,13 @@ html, body, .stApp {{
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
 }}
 
-/* 文字：黒 */
+/* 文字 */
 h1, h2, h3 {{
     color: #000000;
 }}
 
 p, div, span, label {{
-    color: #222222;
+    color: #111111;
 }}
 
 </style>
