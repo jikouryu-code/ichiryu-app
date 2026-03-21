@@ -1,3 +1,4 @@
+import streamlit as st
 import base64
 
 def get_base64(file):
@@ -9,7 +10,6 @@ img = get_base64("風 (2).png")
 st.markdown(f"""
 <style>
 
-/* 背景 */
 .stApp {{
     background-color: #000000;
     background-image: url("data:image/png;base64,{img}");
@@ -18,7 +18,6 @@ st.markdown(f"""
     background-attachment: fixed;
 }}
 
-/* 黒オーバーレイ（目に優しい） */
 .stApp::before {{
     content: "";
     position: fixed;
@@ -30,12 +29,10 @@ st.markdown(f"""
     z-index: -1;
 }}
 
-/* 明朝 */
 html, body, .stApp {{
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
 }}
 
-/* 文字色（少し柔らかい金） */
 h1, h2, h3 {{
     color: #E6C97A;
 }}
