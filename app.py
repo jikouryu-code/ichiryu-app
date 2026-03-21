@@ -10,13 +10,40 @@ img = get_base64("kaze.png")  # ←こっちに変更！
 st.markdown(f"""
 <style>
 
-/* 高さ */
+/* ===== フォント完全固定（最重要） ===== */
+* {{
+    font-family: 
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "MS Mincho",
+    serif !important;
+}}
+
+/* Streamlit内部も強制 */
+[class*="css"]  {{
+    font-family: 
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "MS Mincho",
+    serif !important;
+}}
+
+/* 入力欄も */
+input, textarea {{
+    font-family: 
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "MS Mincho",
+    serif !important;
+}}
+
+/* ===== 高さ ===== */
 html, body, .stApp {{
     height: 100%;
     min-height: 100vh;
 }}
 
-/* 背景 */
+/* ===== 背景 ===== */
 .stApp {{
     background-image: url("data:image/png;base64,{img}");
     background-size: cover;
@@ -25,7 +52,7 @@ html, body, .stApp {{
     background-attachment: fixed;
 }}
 
-/* オーバーレイ */
+/* ===== オーバーレイ ===== */
 .stApp::before {{
     content: "";
     position: fixed;
@@ -37,17 +64,13 @@ html, body, .stApp {{
     z-index: 0;
 }}
 
-/* 前面 */
+/* ===== 前面 ===== */
 .main > div {{
     position: relative;
     z-index: 1;
 }}
 
-/* ゴシック（ここ変更） */
-html, body, .stApp {{
-    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
-}}
-
+/* ===== 文字色 ===== */
 h1, h2, h3 {{
     color: #000000;
 }}
