@@ -2,14 +2,36 @@ import streamlit as st
 
 # ===== フォント（明朝）=====
 st.markdown("""
-    <style>
-    html, body, .stApp {
-        font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
-    }
-    h1, h2, h3, p, div, span, label {
-        font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
-    }
-    </style>
+<style>
+.stApp {
+    background-image: url("風 (2).png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 少し暗くして文字を見やすく */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* 明朝 */
+html, body, .stApp {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+}
+
+/* 文字色（高級感） */
+h1, h2, h3, p, div, span, label {
+    color: #E6C97A;
+}
+</style>
 """, unsafe_allow_html=True)
 
 # ===== ページ設定 =====
@@ -92,7 +114,7 @@ DATA = {
 L = DATA["JP"]
 
 # ===== 画像 =====
-st.image("風 (2).png", width=300)
+
 
 # ===== 検索 =====
 search = st.text_input("🔍 調べたい言葉を入力（漢字・かなOK）")
