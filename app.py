@@ -10,14 +10,16 @@ img = get_base64("風 (2).png")
 st.markdown(f"""
 <style>
 
+/* 背景 */
 .stApp {{
-    background-color: #000000;
+    background-color: #ffffff;
     background-image: url("data:image/png;base64,{img}");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }}
 
+/* 白オーバーレイ（かなり薄く見せる） */
 .stApp::before {{
     content: "";
     position: fixed;
@@ -25,20 +27,22 @@ st.markdown(f"""
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(255,255,255,0.85);  /* ←ここが重要 */
     z-index: -1;
 }}
 
+/* 明朝 */
 html, body, .stApp {{
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
 }}
 
+/* 文字：黒 */
 h1, h2, h3 {{
-    color: #E6C97A;
+    color: #000000;
 }}
 
 p, div, span, label {{
-    color: #EDEDED;
+    color: #222222;
 }}
 
 </style>
