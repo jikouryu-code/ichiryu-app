@@ -10,9 +10,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-st.image("風 (2).png", use_container_width=True)
 
-st.title(L["title"])
 # ==========================================
 # 一龍聖典 - 風の巻：販売用最終データ
 # ==========================================
@@ -20,6 +18,16 @@ st.title(L["title"])
 st.set_page_config(page_title="Ichiryu Seiten - Wind", layout="centered")
 
 # ===== データ（完全保持）=====
+DATA = {
+    ...
+}
+
+L = DATA["JP"]
+
+# ===== 表示 =====
+st.image("風 (2).png", use_container_width=True)
+
+st.title(L["title"])
 DATA = {
     "JP": {
         "title": "一龍聖典",
