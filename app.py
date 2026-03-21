@@ -91,13 +91,13 @@ DATA = {
 
 L = DATA["JP"]
 
+# ===== 画像 =====
+st.image("風 (2).png", width=300)
+
 # ===== 検索 =====
 search = st.text_input("🔍 調べたい言葉を入力（漢字・かなOK）")
 
-# ===== 画像 =====
-st.image("風 (2).png", width=400)
-
-# ===== 表示 =====
+# ===== タイトル =====
 st.title(L["title"])
 st.subheader(L["vol"])
 st.markdown(f"**{L['sub']}**")
