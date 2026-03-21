@@ -1,39 +1,51 @@
-import streamlit as st
+import base64
 
-# ===== フォント（明朝）=====
-st.markdown("""
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+img = get_base64("風 (2).png")
+
+st.markdown(f"""
 <style>
-.stApp {
-    background-image: url("風 (2).png");
+
+/* 背景 */
+.stApp {{
+    background-color: #000000;
+    background-image: url("data:image/png;base64,{img}");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-}
+}}
 
-/* 少し暗くして文字を見やすく */
-.stApp::before {
+/* 黒オーバーレイ（目に優しい） */
+.stApp::before {{
     content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     z-index: -1;
-}
+}}
 
 /* 明朝 */
-html, body, .stApp {
+html, body, .stApp {{
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
-}
+}}
 
-/* 文字色（高級感） */
-h1, h2, h3, p, div, span, label {
+/* 文字色（少し柔らかい金） */
+h1, h2, h3 {{
     color: #E6C97A;
-}
+}}
+
+p, div, span, label {{
+    color: #EDEDED;
+}}
+
 </style>
 """, unsafe_allow_html=True)
-
 # ===== ページ設定 =====
 
 
