@@ -13,7 +13,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ===== ページ設定 =====
-st.set_page_config(page_title="一龍聖典", page_icon="🐉", layout="centered")
+st.markdown("<h1 style='text-align:center;'>一龍聖典</h1>", unsafe_allow_html=True)
 
 # ===== データ（完全保持）=====
 DATA = {
