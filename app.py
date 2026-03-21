@@ -9,8 +9,21 @@ img = get_base64("kaze.png")  # ←こっちに変更！
 
 st.markdown(f"""
 <style>
+/* カテゴリ文字の余白と行間 */
+div[role="radiogroup"] label {
+    padding: 14px 12px;   /* ←上下広げる */
+    line-height: 1.8;     /* ←行間ゆったり */
+    font-size: 16px;      /* ←少し大きく */
+}
 
-/* ===== フォント（安全版） ===== */
+/* テキスト全体も少しゆるく */
+p, div, span {
+    line-height: 1.7;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 body, .stApp, p, div, span, label, h1, h2, h3 {{
     font-family:
     "Hiragino Mincho ProN",
