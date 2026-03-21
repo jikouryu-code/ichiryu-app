@@ -13,7 +13,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ===== ページ設定 =====
-st.image("風 (2).png", width=500)
+
 
 # ===== データ（完全保持）=====
 DATA = {
@@ -95,7 +95,7 @@ L = DATA["JP"]
 search = st.text_input("🔍 調べたい言葉を入力（漢字・かなOK）")
 
 # ===== 画像 =====
-st.image("風 (2).png", use_container_width=True)
+st.image("風 (2).png", width=400)
 
 # ===== 表示 =====
 st.title(L["title"])
