@@ -10,31 +10,22 @@ img = get_base64("kaze.png")  # ←こっちに変更！
 st.markdown(f"""
 <style>
 
-/* ===== フォント完全固定（最重要） ===== */
-* {{
-    font-family: 
+/* ===== フォント（安全版） ===== */
+body, .stApp, p, div, span, label, h1, h2, h3 {{
+    font-family:
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "MS Mincho",
-    serif !important;
+    serif;
 }}
 
-/* Streamlit内部も強制 */
-[class*="css"]  {{
-    font-family: 
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "MS Mincho",
-    serif !important;
-}}
-
-/* 入力欄も */
+/* 入力欄 */
 input, textarea {{
-    font-family: 
+    font-family:
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "MS Mincho",
-    serif !important;
+    serif;
 }}
 
 /* ===== 高さ ===== */
