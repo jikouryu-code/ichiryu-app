@@ -26,7 +26,7 @@ st.markdown(f"""
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255,255,255,0.92);  /* ←ここ調整ポイント */
+background: rgba(255,255,255,0.75);/* ←ここ調整ポイント */
     z-index: 0;
 }}
 
