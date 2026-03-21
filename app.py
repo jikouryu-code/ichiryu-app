@@ -1,3 +1,10 @@
+import streamlit as st
+import base64
+def get_base64(file):
+    with open(file, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+img = get_base64("kaze.png")
 st.markdown(f"""
 <style>
 
