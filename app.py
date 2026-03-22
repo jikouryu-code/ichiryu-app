@@ -1,4 +1,17 @@
 import streamlit as st
+# 🔐 ここに追加（最上部）
+PASSWORD = "wind2026"
+
+if "auth" not in st.session_state:
+    st.session_state.auth = False
+
+if not st.session_state.auth:
+    pwd = st.text_input("パスワードを入力してください", type="password")
+    if pwd == PASSWORD:
+        st.session_state.auth = True
+        st.rerun()
+    else:
+        st.stop()
 import base64
 def get_base64(file):
     with open(file, "rb") as f:
